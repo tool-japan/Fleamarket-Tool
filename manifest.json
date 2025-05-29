@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "メルカリ出品支援",
+  "version": "1.0",
+  "description": "メルカリ出品ページにテンプレを自動入力する拡張機能",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://jp.mercari.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://jp.mercari.com/sell*"],
+      "js": ["content.js"]
+    }
+  ]
+}
