@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>出品テンプレ</title>
+  <style>
+    body { font-family: sans-serif; padding: 10px; width: 200px; }
+    input, textarea { width: 100%; margin-bottom: 8px; }
+    button { width: 100%; }
+  </style>
+</head>
+<body>
+  <h3>テンプレ設定</h3>
+  <input type="text" id="title" placeholder="商品名">
+  <textarea id="description" placeholder="説明文"></textarea>
+  <input type="number" id="price" placeholder="価格">
+  <button id="saveBtn">保存</button>
+  <script>
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const price = document.getElementById("price").value;
+
+      chrome.storage.local.set({ title, description, price }, () => {
+        alert("テンプレ保存完了！");
+      });
+    });
+  </script>
+</body>
+</html>
